@@ -1,0 +1,21 @@
+package leetcode.Array;
+
+// LC 485. Max Consecutive Ones
+
+class Solution {
+    public int findMaxConsecutiveOnes(int[] nums) {
+        int count = 0;
+        int maxone = 0;
+
+        for(int i =0;i<nums.length;i++){
+            if(nums[i] == 1){
+                count++;
+                maxone = Math.max(maxone,count);
+            }
+            else{
+                count=0;
+            }
+        }
+        return maxone;
+    }
+}
