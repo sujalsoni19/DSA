@@ -1,4 +1,6 @@
 
+
+
 // LC. 137. Single Number II
 // the approach is to count the number of bits in each position for all numbers. Since every number except one appears three times, the sum of bits at each position will be a multiple of 3 for those numbers. The unique number will contribute to the sum in such a way that it will not be a multiple of 3. By checking each bit position, we can reconstruct the unique number.
 
@@ -15,7 +17,7 @@ public class Singlenumber2{
             
             // Count how many numbers have the i-th bit set
             for (int num : nums) {
-                if ((num & (1 << i)) == 1) {
+                if ((num & (1 << i)) != 0) {
                     sum++;
                 }
             }
