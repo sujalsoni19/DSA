@@ -1,0 +1,40 @@
+package leetcode.Sorting;
+
+// lc 912: sort an array
+
+public class SortArray {
+    class Solution {
+        public int[] sortArray(int[] nums) {
+            quicksort(nums, 0, nums.length - 1);
+            return nums;
+        }
+
+        private void quicksort(int[] nums, int start, int end) {
+            if (start >= end)
+                return;
+
+            int i = start;
+            int j = end;
+            int mid = start + (end - start) / 2;
+            int pivot = nums[mid];
+
+            while (i <= j) {
+                while (nums[i] < pivot)
+                    i++;
+
+                while (nums[j] > pivot)
+                    j--;
+
+                if (i <= j) {
+                    int temp = nums[i];
+                    nums[i] = nums[j];
+                    nums[j] = temp;
+                    i++;
+                    j--;
+                }
+            }
+            quicksort(nums, start, j);
+            quicksort(nums, i, end);
+        }
+    }
+}
